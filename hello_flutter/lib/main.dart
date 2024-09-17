@@ -111,7 +111,7 @@ void main() {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        'SHARE',
+                        'SHAREf',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
