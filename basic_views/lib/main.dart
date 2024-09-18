@@ -1,3 +1,4 @@
+import 'package:basic_views/grid_view_example.dart';
 import 'package:basic_views/list_view_example.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ListViewExample(),
+      home: GridViewExample(),
     );
   }
 }
