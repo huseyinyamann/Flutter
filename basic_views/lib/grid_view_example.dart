@@ -10,7 +10,20 @@ class GridViewExample extends StatelessWidget {
       appBar: AppBar(
         title: Text('Grid View Example'),
       ),
-      
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 2,
+          mainAxisSpacing: 2,
+        ),
+        itemCount: items.length,
+        itemBuilder: (context, index) =>
+            Card(
+              child: Center(
+                child: Text(items[index]),
+              ),
+            ),
+      ),
     );
   }
 }
