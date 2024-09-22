@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StatelessLearnView extends StatelessWidget{
+   final String title = 'title';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,10 +10,10 @@ class StatelessLearnView extends StatelessWidget{
       ),
       body: Column(
         children: [
-          const TitleTextWidget(title: 'title'),
-          const TitleTextWidget(title: 'title'),
+         TitleTextWidget(title: title),
+         TitleTextWidget(title: title),
           _emptyBox(),
-          const TitleTextWidget(title: 'title'),
+         TitleTextWidget(title: title),
           _emptyBox(),
           _CustomContainer(), 
         ],

@@ -1,6 +1,4 @@
-import 'package:exercise_2/101/app_bar_learn.dart';
-import 'package:exercise_2/101/icon_learn.dart';
-import 'package:exercise_2/101/stateless_learn.dart';
+import 'package:exercise_2/demos/note_demos_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(
       ).copyWith(
         appBarTheme: AppBarTheme(
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
       ),
-      home: StatelessLearnView(),
+      home: NoteDemosView(),
     );
   }
 }
