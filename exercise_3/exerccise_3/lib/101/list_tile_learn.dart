@@ -8,7 +8,6 @@ class ListTileLearnView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -18,7 +17,7 @@ class ListTileLearnView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
                   title: RandomImage(),
-                  onTap: (){},
+                  onTap: () {},
                   subtitle: Text('How do you use card'),
                   leading: Icon(Icons.money),
                   trailing: Icon(Icons.chevron_right),

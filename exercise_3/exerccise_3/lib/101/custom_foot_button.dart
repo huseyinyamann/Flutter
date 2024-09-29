@@ -13,14 +13,18 @@ class CustomWidgetLearnView extends StatelessWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SizedBox(width: MediaQuery.of(context).size.width, 
-               child: CustomFootButton(title: 'Food',onPressed: (){})),
+              child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: CustomFootButton(title: 'Food', onPressed: () {})),
             ),
           ),
-            SizedBox(height: 100,),
-            CustomFootButton(title: title, onPressed:() {
-              
-            },),
+          SizedBox(
+            height: 100,
+          ),
+          CustomFootButton(
+            title: title,
+            onPressed: () {},
+          ),
         ],
       ),
     );
@@ -33,7 +37,9 @@ class _ColorsUtility {
 }
 
 class CustomFootButton extends StatelessWidget {
-  const CustomFootButton({Key? key, required this.title, required this.onPressed}) : super(key: key);
+  const CustomFootButton(
+      {Key? key, required this.title, required this.onPressed})
+      : super(key: key);
   final String title;
   final void Function() onPressed;
   @override

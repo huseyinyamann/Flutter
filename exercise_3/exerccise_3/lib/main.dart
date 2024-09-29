@@ -1,4 +1,4 @@
-import 'package:exerccise_3/101/column_row.dart';
+import 'package:exerccise_3/101/navigation_learn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,15 +16,16 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        appBarTheme: AppBarTheme(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          actionsIconTheme: IconThemeData(color: Colors.red),
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-        ),
-        listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero,)
-      ),
-      home: const ColumnRowView(),
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            actionsIconTheme: IconThemeData(color: Colors.red),
+            systemOverlayStyle: SystemUiOverlayStyle.light,
+          ),
+          listTileTheme: ListTileThemeData(
+            contentPadding: EdgeInsets.zero,
+          )),
+      home: const NavigationLearnView(),
     );
   }
 }
@@ -38,7 +39,7 @@ class MyHomePage extends StatefulWidget {
 
   // This class is the configuration for the state. It holds the values (in this
   // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
+  // used by the build method of the State. Fieldss in a Widget subclass are
   // always marked "final".
 
   final String title;

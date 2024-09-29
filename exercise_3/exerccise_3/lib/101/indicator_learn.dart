@@ -6,9 +6,11 @@ class IndicatorLearnView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [CenterCircularPorgresIndicator()],),
+      appBar: AppBar(
+        actions: [CenterCircularPorgresIndicator()],
+      ),
       body: CenterCircularPorgresIndicator(),
-    );  
+    );
   }
 }
 
@@ -19,6 +21,10 @@ class CenterCircularPorgresIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: CircularProgressIndicator(color: Colors.white,),);
+    return Center(
+      child: CircularProgressIndicator(
+        color: Colors.white,
+      ),
+    );
   }
 }
