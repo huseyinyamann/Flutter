@@ -1,4 +1,5 @@
 import 'package:exerccise_3/101/navigation_learn.dart';
+import 'package:exerccise_3/202/tab_learn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           listTileTheme: ListTileThemeData(
             contentPadding: EdgeInsets.zero,
           )),
-      home: const NavigationLearnView(),
+      home: const TabLearnView(),
     );
   }
 }
