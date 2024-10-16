@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:exerccise_3/202/comment_learn_view.dart';
 import 'package:exerccise_3/202/post_model.dart';
 import 'package:exerccise_3/202/post_service.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +14,8 @@ class _ServiceLearnViewState extends State<ServiceLearnView> {
   // TEST EDİLEBİLİR KOD BAŞLADI
   late final IPostService _postService;
   bool _isLoading = false;
-  late final Dio _dio;
-  final _baseUrl = 'https://jsonplaceholder.typicode.com/';
   @override
   void initState() {
-    _dio = Dio(BaseOptions(baseUrl: _baseUrl));
     _postService = PostService();
     fetchPostItems();
   }
@@ -73,6 +70,11 @@ class _PostCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CommentLearnView(postId: _model?.id),
+          ));
+        },
         title: Text(_model?.title ?? ''),
         subtitle: Text(_model?.body ?? ''),
       ),

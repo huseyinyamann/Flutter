@@ -1,6 +1,6 @@
-import 'package:exerccise_3/202/service_learn_view.dart';
+import 'package:exerccise_3/202/theme_learn_view.dart';
+import 'package:exerccise_3/202/themes/light_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,17 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-          appBarTheme: AppBarTheme(
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            actionsIconTheme: IconThemeData(color: Colors.red),
-            systemOverlayStyle: SystemUiOverlayStyle.light,
-          ),
-          listTileTheme: ListTileThemeData(
-            contentPadding: EdgeInsets.zero,
-          )),
-      home: const ServiceLearnView(),
+       theme:LightTheme().theme,
+       // ThemeData.dark().copyWith(
+      //     appBarTheme: AppBarTheme(
+      //       centerTitle: true,
+      //       backgroundColor: Colors.transparent,
+      //       actionsIconTheme: IconThemeData(color: Colors.red),
+      //       systemOverlayStyle: SystemUiOverlayStyle.light,
+      //     ),
+      //     listTileTheme: ListTileThemeData(
+      //       contentPadding: EdgeInsets.zero,
+      //     )),
+      home: const ThemeLearnView(),
     );
   }
 }
