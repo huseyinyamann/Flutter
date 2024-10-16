@@ -1,4 +1,4 @@
-import 'package:exerccise_3/202/theme_learn_view.dart';
+import 'package:exerccise_3/202/animated_learn_view.dart';
 import 'package:exerccise_3/202/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       //     listTileTheme: ListTileThemeData(
       //       contentPadding: EdgeInsets.zero,
       //     )),
-      home: const ThemeLearnView(),
+      home: const AnimatedLearnView(),
     );
   }
 }

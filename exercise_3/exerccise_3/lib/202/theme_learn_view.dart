@@ -1,3 +1,4 @@
+import 'package:exerccise_3/demos/password_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ThemeLearnView extends StatefulWidget {
@@ -14,6 +15,7 @@ class _ThemeLearnViewState extends State<ThemeLearnView> {
       appBar: AppBar(),
       body: Column(
         children: [
+          PasswordTextField(), 
           CheckboxListTile(
             value: true,
             onChanged: (val) {},

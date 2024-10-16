@@ -1,4 +1,4 @@
-import 'package:exerccise_3/demo/color_demos_view.dart';
+import 'package:exerccise_3/demos/color_demos_view.dart';
 import 'package:flutter/material.dart';
 
 class ColorLifeCycleView extends StatefulWidget {
