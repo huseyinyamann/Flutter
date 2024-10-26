@@ -1,3 +1,6 @@
+import 'package:exerccise_3/202/cache/secure_context/secure_context_learn.dart';
+import 'package:exerccise_3/202/cache/shared_learn_cache.dart';
+import 'package:exerccise_3/202/cache/shared_list_cache.dart';
 import 'package:exerccise_3/202/state_manage/state_manage_learn_view.dart';
 import 'package:exerccise_3/202/themes/light_theme.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       //     listTileTheme: ListTileThemeData(
       //       contentPadding: EdgeInsets.zero,
       //     )),
-      home: const StateManageLearnView(),
+      home: const SecureContextLearnView(),
     );
   }
 }
