@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:profil_sayfasi/models/SocialMediaAccount.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaSection extends StatelessWidget {
-  final Map<String, Color> socialMedia;
+  final List<SocialMediaAccount> socialAccounts;
 
   const SocialMediaSection({
     Key? key,
-    required this.socialMedia,
+    required this.socialAccounts,
   }) : super(key: key);
+
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('URL açılamadı: $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      padding: const EdgeInsets.only(
-          left: 16, right: 16, top: 8, bottom: 8), // Padding optimize edildi
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -29,28 +37,27 @@ class SocialMediaSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Social Media',
+            'Sosyal Medya',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          // Başlık ve grid arasında çok az boşluk
           const SizedBox(height: 20),
           GridView.builder(
-            padding: EdgeInsets.zero, // Grid için padding'i sıfırla
+            padding: EdgeInsets.zero,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
+              crossAxisCount: 3, // Instagram, Twitter, Facebook için 3
               crossAxisSpacing: 10,
-              mainAxisSpacing: 55,
-              mainAxisExtent: 80, // Daha küçük bir yükseklik değeri
+              mainAxisSpacing: 10,
+              mainAxisExtent: 80,
             ),
-            itemCount: socialMedia.length,
+            itemCount: socialAccounts.length,
             itemBuilder: (context, index) {
-              final entry = socialMedia.entries.elementAt(index);
-              return _buildSocialMediaItem(entry.key, entry.value);
+              final account = socialAccounts[index];
+              return _buildSocialMediaItem(context, account);
             },
           ),
         ],
@@ -58,51 +65,42 @@ class SocialMediaSection extends StatelessWidget {
     );
   }
 
-  Widget _buildSocialMediaItem(String name, Color color) {
-    IconData icon;
-
-    switch (name) {
-      case 'Twitter':
-        icon = Icons.face;
-        break;
-      case 'Instagram':
-        icon = Icons.camera_alt;
-        break;
-      case 'LinkedIn':
-        icon = Icons.work;
-        break;
-      case 'YouTube':
-        icon = Icons.play_arrow;
-        break;
-      default:
-        icon = Icons.public;
+  Widget _buildSocialMediaItem(
+      BuildContext context, SocialMediaAccount account) {
+    // Twitter için özel ad düzeltmesi
+    String displayName = account.name;
+    if (displayName == 'X (Twitter)') {
+      displayName = 'Twitter';
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
+    return InkWell(
+      onTap: () => _launchUrl(account.url),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: account.color,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              account.icon,
+              color: Colors.white,
+              size: 22,
+            ),
           ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 22,
+          const SizedBox(height: 4),
+          Text(
+            displayName, // X (Twitter) yerine sadece Twitter gösteriliyor
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey.shade600,
+            ),
           ),
-        ),
-        const SizedBox(height: 4), // 4'ten 2'ye düşürüldü
-        Text(
-          name,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey.shade600,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

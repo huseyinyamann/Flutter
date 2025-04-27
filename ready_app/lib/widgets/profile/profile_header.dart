@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
-  final String coverImageUrl;
+  final String coverImageAsset; // URL yerine asset yolu
   final String profileImageUrl;
   final String name;
   final String username;
   final String location;
-  final String bio;
+  final String maritalStatus;
 
   const ProfileHeader({
     Key? key,
-    required this.coverImageUrl,
+    required this.coverImageAsset, // Parametre adı değiştirildi
     required this.profileImageUrl,
     required this.name,
     required this.username,
     required this.location,
-    required this.bio,
+    required this.maritalStatus,
   }) : super(key: key);
 
   @override
@@ -27,13 +27,13 @@ class ProfileHeader extends StatelessWidget {
           clipBehavior: Clip.none,
           alignment: Alignment.center,
           children: [
-            // Kapak fotoğrafı
+            // Kapak fotoğrafı - NetworkImage yerine AssetImage kullanılıyor
             Container(
               height: MediaQuery.of(context).size.height * 0.35,
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(coverImageUrl),
+                  image: AssetImage(coverImageAsset), // Asset yolu kullanılıyor
                   fit: BoxFit.cover,
                 ),
               ),
@@ -131,7 +131,7 @@ class ProfileHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      'Online',
+                      'Çevrimiçi',
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.green.shade700,
@@ -147,7 +147,7 @@ class ProfileHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      'Single',
+                      maritalStatus,
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey.shade700,
@@ -159,23 +159,23 @@ class ProfileHeader extends StatelessWidget {
               const SizedBox(height: 12),
 
               // Konum
-              Text(
-                '📍 $location',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey.shade700,
-                ),
-              ),
-              const SizedBox(height: 6),
-
-              // Bio
-              Text(
-                bio,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey.shade700,
-                ),
-                textAlign: TextAlign.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    size: 16,
+                    color: Colors.grey.shade700,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    'Ankara, TR',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey.shade700,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

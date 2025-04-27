@@ -70,7 +70,7 @@ class _PhotosSectionState extends State<PhotosSection> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Photos',
+                'Fotoğraflar',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -79,7 +79,7 @@ class _PhotosSectionState extends State<PhotosSection> {
               TextButton(
                 onPressed: _scrollToAdditionalPhotos,
                 child: Text(
-                  _showAllPhotos ? 'See Less' : 'See All',
+                  _showAllPhotos ? 'Küçült' : 'Hepsini Gör',
                   style: TextStyle(
                     fontSize: 14,
                     color: Theme.of(context).primaryColor,
